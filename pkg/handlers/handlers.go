@@ -35,7 +35,7 @@ func GetUser(req events.APIGatewayProxyRequest, tableName string, dynaClient dyn
 func CreateUser(req events.APIGatewayProxyRequest, tableName string, dynaClient dynamodbiface.DynamoDBAPI) (*events.APIGatewayProxyResponse, error) {
 	result, err := user.CreateUser(req, tableName, dynaClient)
 	if err != nil {
-		apiResponse(http.StatusBadRequest, ErrorBody{ErrorMsg: aws.String(err.Serror())})
+		apiResponse(http.StatusBadRequest, ErrorBody{ErrorMsg: aws.String(err.Error())})
 	}
 	return apiResponse(http.StatusCreated, result)
 }
@@ -43,7 +43,7 @@ func CreateUser(req events.APIGatewayProxyRequest, tableName string, dynaClient 
 func UpdateUser(req events.APIGatewayProxyRequest, tableName string, dynaClient dynamodbiface.DynamoDBAPI) (*events.APIGatewayProxyResponse, error) {
 	result, err := user.UpdateUser(req, tableName, dynaClient)
 	if err != nil {
-		apiResponse(http.StatusBadRequest, ErrorBody{aws.String(err.Error)})
+		apiResponse(http.StatusBadRequest, ErrorBody{aws.String(err.Error())})
 	}
 	return apiResponse(http.StatusOK, result)
 
