@@ -9,7 +9,7 @@ import (
 func apiResponse(status int, body interface{}) (*events.APIGatewayProxyResponse, error) {
 	resp := events.APIGatewayProxyResponse{
 		Headers: map[string]string{
-			"Content-Type": "aaplication/json",
+			"Content-Type": "application/json",
 		},
 		StatusCode: status,
 	}
